@@ -12,9 +12,6 @@ app.use(express.static('build'));
 app.use('/zoo', zooRouter)
 
 /** ---------- START SERVER ---------- **/
-app.listen(port, function () {
+module.exports = app.listen(port, function () {
     console.log('Listening on port: ', port);
 });
-
-module.exports = app;
-

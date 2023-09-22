@@ -4,7 +4,7 @@ const pool = require('../modules/pool.js');
 
 router.get('/', (req, res) => {
     // YOUR CODE HERE
-    
+
 });
 
 module.exports = router;
