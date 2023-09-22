@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+testResults.*
 
 # misc
 .DS_Store

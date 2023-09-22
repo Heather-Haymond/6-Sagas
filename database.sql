@@ -1,4 +1,14 @@
 -- Database: zoo_animals
+-- 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+-- PLEASE DO NOT MODIFY THIS FILE!
+-- If you do, it will likely not be possible
+-- for your code to pass the automated tests.
+-- 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+
+DROP TABLE IF EXISTS species;
+DROP TABLE IF EXISTS class;
+
+
 
 CREATE TABLE "class" (
     "id" serial PRIMARY KEY,
