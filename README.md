@@ -20,8 +20,10 @@ You have been provided with data for a small Zoo. Your web app should display al
 ## Testing
 There are three different tests that you can run.
 `npm run test:client` will test your front end code and emit an HTML report.
-`npm run test:watch` will test your front end code and report in the terminal.
+`npm run test:watch` will test your front end code and report in the terminal. It will auto run whenever you make a client side change.
 `npm run test:server` will test your back end code and report in the terminal.
+
+Make sure your client AND server tests are working before moving on to the stretch goals.
 
 ## Sample Output
 
