@@ -17,6 +17,12 @@ You have been provided with data for a small Zoo. Your web app should display al
 - [ ] Write your SQL in the `routes/zoo.router.js` file.
 - [ ] Add a Saga in the `index.js` file for making your `GET` request. It should listen for the action type of `GET_ZOO_ANIMALS`.
 
+## Testing
+There are three different tests that you can run.
+`npm run test:client` will test your front end code and emit an HTML report.
+`npm run test:watch` will test your front end code and report in the terminal.
+`npm run test:server` will test your back end code and report in the terminal.
+
 ## Sample Output
 
 When the Saga and router are working as expected, the page should display the following:
