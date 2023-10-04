@@ -1,29 +1,24 @@
-import { queryByText } from '@testing-library/react';
-import { render, screen } from '../../test/testUtil'
+import { screen } from '@testing-library/react';
+import { renderWithRedux } from '../../__test_utils__/renderWithRedux';
 import App from './App'
 
 
-const headerHint = `We're looking for the header to render. Make sure that you didn't accidentally change it. It should say 'Zoo Animals'`;
-
-describe('App', () => {
-    it('renders without crashing', () => {
-        render(<App />)
+describe('The React/Redux/Sagas app', () => {
+    it('Renders without crashing', () => {
+      renderWithRedux(<App />)
     });
 
-    it('displays zoo animal correctly', async () => {
-        render(<App />)
+    it(`Displays zoo animals' species names`, async () => {
+      renderWithRedux(<App />)
 
-        expect(await queryByText(/Aardvark/i)).toBeInTheDocument()
-        expect(await getByText(/Zebra/i)).toBeInTheDocument()
+      expect(await screen.findByText(/Aardvark/i)).toBeInTheDocument()
+      expect(await screen.findByText(/Zebra/i)).toBeInTheDocument()
     });
 
-    it('displays zoo animals class correctly', async () => {
-        render(<App />)
+    it(`Displays zoo animals' class names`, async () => {
+      renderWithRedux(<App />)
 
-        expect(await queryByText(/Mammal/i)).toBeInTheDocument()
-        expect(await getByText(/Bird/i)).toBeInTheDocument()
+      expect(await screen.findByText(/Mammal/i)).toBeInTheDocument()
+      expect(await screen.findByText(/Bird/i)).toBeInTheDocument()
     });
-
-
-
 });

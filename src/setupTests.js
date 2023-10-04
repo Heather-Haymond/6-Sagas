@@ -5,18 +5,15 @@
  */
 import 'jest-expect-message';
 import '@testing-library/jest-dom'
-import { default as waitFor } from 'wait-for-expect';
 
-// Configure test timeouts
-waitFor.defaults.timeout = 1000
-jest.setTimeout(1500);
 
 // Stub out console.log
 // Some students have very verbose logs, that make it difficult
 // to follow relevant test logs
-console.log = console.warn = console.error = console.group = () => { };
+console.log = console.error = console.warn = console.group = () => { };
 
-import { server } from './mocks/server'
+// Import the mocked server:
+import { testServer as server } from './__test_utils__/__mocks__/testServer'
 
 beforeAll(() => {
   // Enable the mocking in tests.

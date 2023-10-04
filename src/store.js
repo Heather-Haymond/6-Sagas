@@ -1,16 +1,17 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import logger from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
+import axios from "axios";
+
 
 // Your saga should listen for the action type of `GET_ZOO_ANIMALS`
 function* rootSaga() {
-    // YOUR CODE HERE
-
+  // Your code here.
 }
 
 
-
-// Used to store class and number of unique animals in that class
+// This reducer is waiting for you to put an array of
+// zoo animal objects in it...
 const zooAnimals = (state = [], action) => {
     switch (action.type) {
         case 'SET_ZOO_ANIMALS':
@@ -20,21 +21,24 @@ const zooAnimals = (state = [], action) => {
     }
 }
 
-// Create sagaMiddleware
+// Create the sagaMiddleware:
 const sagaMiddleware = createSagaMiddleware();
 
-// Create one store that all components can use
-// Need a function for exporting so we can test it
-export const createAppStore = () => {
+// This is a function that will create the redux store.
+// Kind of odd, but we need to do it so that we have a
+// way of creating the redux store for our tests.
+export const store = () => {
     const store = createStore(
         combineReducers({
             zooAnimals,
         }),
-        // Add sagaMiddleware to our store
+        // Add sagaMiddleware and redux logger to our store:
         applyMiddleware(sagaMiddleware, logger),
     );
 
-    // Pass rootSaga into our sagaMiddleware
+    // Pass the rootSaga into our sagaMiddleware:
     sagaMiddleware.run(rootSaga);
+
+    // Return the redux store:
     return store;
 }
