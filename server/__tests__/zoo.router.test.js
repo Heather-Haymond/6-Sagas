@@ -9,8 +9,6 @@ describe('GET /zoo', () => {
     let mockedPool;
 
     beforeAll(async () => {
-        console.log = () => {};
-
         // Silence console.log statements for cleaner test output:
         console.log = () => { }
         // Prepare a fresh prime_testing database:
@@ -20,6 +18,9 @@ describe('GET /zoo', () => {
         // Create the treats table.
         // Insert data into the treats table.
         await executeSqlFile('../database.sql');
+
+        app.setTimeout(500);
+
     })
 
     beforeEach(() => {
@@ -40,11 +41,9 @@ describe('GET /zoo', () => {
     }
 
     it('Uses the pool module to query the database', async () => {
-      let response;
       //Trying to avoid 5000ms error message...
       try {
-          app.setTimeout(500)
-          response = await request(app).get('/zoo')
+          await request(app).get('/zoo')
       } catch (error) {
           expect(
             error,
@@ -62,7 +61,6 @@ describe('GET /zoo', () => {
       let response;
       //Trying to avoid 5000ms error message...
       try {
-          app.setTimeout(500)
           response = await request(app).get('/zoo')
       } catch (error) {
           expect(
@@ -90,7 +88,6 @@ describe('GET /zoo', () => {
         let response;
         //Trying to avoid 5000ms error message...
         try {
-            app.setTimeout(500)
             response = await request(app).get('/zoo')
         } catch (error) {
             expect(
