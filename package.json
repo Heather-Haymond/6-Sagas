@@ -16,14 +16,22 @@
     "redux-saga": "^1.1.3"
   },
   "devDependencies": {
-    "nodemon": "^1.19.4"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/jest-dom": "^6.1.3",
+    "@testing-library/react": "^14.0.0",
+    "jest-expect-message": "^1.0.2",
+    "msw": "^1.3.1",
+    "nodemon": "^1.19.4",
+    "supertest": "^6.2.0"
   },
   "scripts": {
     "start": "node server/server.js",
     "build": "react-scripts build",
     "client": "react-scripts start",
     "server": "nodemon  --watch server server/server.js",
-    "test": "react-scripts test --env=jsdom",
+    "test": "npm run test:client ; npm run test:server",
+    "test:server": "NODE_ENV=test && jest server/__tests__/*.test.js --verbose --forceExit --detectOpenHandles",
+    "test:client": "react-scripts test --verbose=true --watchAll=false",
     "eject": "react-scripts eject"
   },
   "browserslist": [
