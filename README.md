@@ -36,8 +36,8 @@ You got this. 🙂
 1. Fork and clone this repo to your computer.
 2. `cd` into the cloned repo and run `npm install`.
 3. Run `npm test` to verify that the automated tests work as expected.
-    * There is one test file. It contains three tests.
-    * All but one of the tests should be currently failing.
+    * There are two test files.
+    * All but one of the tests should be currently failing, and this will cause **a lot** of text output in your terminal.
     * *Let us know immediately if something goes wrong with running the tests.*
 3. Create a new database named `zoo_animals`.
 4. Execute the SQL queries found in `database.sql` in order to:
