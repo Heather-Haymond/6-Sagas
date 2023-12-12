@@ -119,7 +119,7 @@ describe('GET /zoo', () => {
 
     it('Responds with status 500 if there is an error', async () => {
         mockedPool.mockImplementation(() => {
-            return Promise.reject('Pool Error')
+            return Promise.reject('Mocked Pool Error -- This is only for testing')
         })
 
         const response = await request(app).get('/zoo')
