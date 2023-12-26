@@ -17,7 +17,7 @@ export const zooAnimals = [
 
 // Array of all of the routes our mock server implements:
 const mockRoutes = [
-  rest.get('/zoo', async (req, res, ctx) => {
+  rest.get('/api/zoo', async (req, res, ctx) => {
     return res(ctx.json(zooAnimals))
   })
 ]
