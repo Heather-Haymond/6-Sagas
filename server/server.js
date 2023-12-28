@@ -2,11 +2,7 @@ const express = require('express');
 
 const app = express();
 
-let PORT = process.env.PORT || 5000;
-
-if (process.env.NODE_ENV === 'test') {
-  PORT = 5001;
-}
+let PORT = process.env.PORT || 5001;
 
 const zooRouter = require('./routes/zoo.router.js');
 
