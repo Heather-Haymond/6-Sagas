@@ -4,7 +4,9 @@
  * For Prime Instructional Staff use only.
  */
 import 'jest-expect-message';
-import '@testing-library/jest-dom'
+import { afterEach, beforeAll, afterAll } from 'vitest';
+import { cleanup } from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
 
 
 // Stub out console.log
@@ -23,10 +25,13 @@ beforeAll(() => {
 afterEach(() => {
   // Reset any runtime handlers tests may use.
   server.resetHandlers()
-  jest.clearAllMocks()
+  //jest.clearAllMocks()
+  cleanup();
+
 })
 
 afterAll(() => {
   // Clean up once the tests are done.
   server.close()
 })
+
