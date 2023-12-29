@@ -9,7 +9,7 @@ const zooRouter = require('./routes/zoo.router.js');
 app.use(express.json());
 app.use(express.static('build'));
 
-app.use('/zoo', zooRouter);
+app.use('/api/zoo', zooRouter);
 
 module.exports = app.listen(PORT, function () {
     console.log('Listening on port: ', PORT);

@@ -31,8 +31,8 @@
   },
   "scripts": {
     "start": "node server/server.js",
-    "build": "vite build",
     "client": "vite",
+    "build": "vite build",
     "server": "nodemon --watch server server/server.js",
     "test": "npm run test:client ; npm run test:server",
     "test:server": "NODE_ENV=test && jest server/__tests__/*.test.js --verbose --forceExit --detectOpenHandles",
