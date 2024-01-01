@@ -47,7 +47,7 @@ You got this. 🙂
     * `npm run server`
     * `npm run client`
     * Verify that the app starts up and the terminal is error-free.
-5. If it doesn't automatically happen, open `localhost:3000/` in your browser to see the initial state of the app.
+5. If it doesn't automatically happen, open `localhost:5173` in your browser to see the initial state of the app.
     * Don't forget to check the browser console. It should also be error-free.
 
 ## Requirements:

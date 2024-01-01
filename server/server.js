@@ -1,16 +1,17 @@
 const express = require('express');
-
 const app = express();
-
+const zooRouter = require('./routes/zoo.router.js');
 let PORT = process.env.PORT || 5001;
 
-const zooRouter = require('./routes/zoo.router.js');
-
+/** ---------- MIDDLEWARE ---------- **/
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.use(express.static('build'));
 
+/** ---------- ROUTES ---------- **/
 app.use('/api/zoo', zooRouter);
 
-module.exports = app.listen(PORT, function () {
-    console.log('Listening on port: ', PORT);
+/** ---------- START SERVER ---------- **/
+app.listen(PORT, () => {
+  console.log(`Listening on port: ${PORT}`);
 });

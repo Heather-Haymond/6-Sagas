@@ -30,10 +30,10 @@
     "vitest": "^1.1.0"
   },
   "scripts": {
-    "start": "node server/server.js",
+    "start": "node server/server.js | vite",
     "client": "vite",
-    "build": "vite build",
     "server": "nodemon --watch server server/server.js",
+    "build": "vite build",
     "test": "npm run test:client ; npm run test:server",
     "test:server": "NODE_ENV=test && jest server/__tests__/*.test.js --verbose --forceExit --detectOpenHandles",
     "test:client": "vitest"
