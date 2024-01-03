@@ -5,7 +5,7 @@ let app = require('../server');
 const { resetTestDatabase, executeSqlFile } = require('./__utils__/db-setup.js');
 
 
-describe('GET /zoo', () => {
+describe('GET /api/zoo', () => {
     let mockedPool;
 
     beforeAll(async () => {
@@ -43,7 +43,7 @@ describe('GET /zoo', () => {
     it('Uses the pool module to query the database', async () => {
       //Trying to avoid 5000ms error message...
       try {
-          await request(app).get('/zoo')
+          await request(app).get('/api/zoo')
       } catch (error) {
           expect(
             error,
@@ -61,7 +61,7 @@ describe('GET /zoo', () => {
       let response;
       //Trying to avoid 5000ms error message...
       try {
-          response = await request(app).get('/zoo')
+          response = await request(app).get('/api/zoo')
       } catch (error) {
           expect(
             error,
@@ -88,7 +88,7 @@ describe('GET /zoo', () => {
         let response;
         //Trying to avoid 5000ms error message...
         try {
-            response = await request(app).get('/zoo')
+            response = await request(app).get('/api/zoo')
         } catch (error) {
             expect(
               error,
@@ -122,7 +122,7 @@ describe('GET /zoo', () => {
             return Promise.reject('Mocked Pool Error -- This is only for testing')
         })
 
-        const response = await request(app).get('/zoo')
+        const response = await request(app).get('/api/zoo')
         expect(response.status).toEqual(500);
     })
 })
