@@ -35,7 +35,7 @@
     "build": "vite build",
     "test": "npm run test:client && npm run test:server",
     "test:server": "NODE_ENV=test && jest server/__tests__/*.test.js --verbose --forceExit --detectOpenHandles",
-    "test:client": "vitest"
+    "test:client": "vitest run"
   },
   "browserslist": [
     ">0.2%",
