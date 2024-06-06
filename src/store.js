@@ -18,7 +18,8 @@ function* getZooAnimals () {
     console.log('In the Zoo')
 
     try { //(get function)
-      let response = yield axios.get('/api/zoo');
+      let response = yield axios.get ('/api/zoo');
+      console.log("data", response.data)
         yield put({
             type: 'SET_ZOO_ANIMALS',
             payload: response.data });
@@ -36,25 +37,8 @@ const zooAnimals = (state = [], action) => {
             return state;
     }
 }
-const species = (state = [], action) => {
-   
-    switch (action.type) {
-        case 'SET_SPECIES':
-            return action.payload;
-        default:
-            return state;
-    }
-}
 
-// const animalClass = (state = [], action) => {
-   
-//     switch (action.type) {
-//         case 'SET_ANIMAL_CLASS':
-//             return action.payload;
-//         default:
-//             return state;
-//     }
-// }
+
 
 // Create the sagaMiddleware:
 const sagaMiddleware = createSagaMiddleware();
@@ -66,7 +50,6 @@ export const store = () => {
     const store = createStore(
         combineReducers({
             zooAnimals,
-            species
             
         }),
         // Add sagaMiddleware and redux logger to our store:
@@ -81,7 +64,7 @@ export const store = () => {
 }
 
 
-// module.exports = router;
+
 // The previous developer got stuck and couldn't figure out:
 // 1. How to write a SQL join.
 // 2. How to implement the `redux-saga` library.

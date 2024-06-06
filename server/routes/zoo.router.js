@@ -4,47 +4,33 @@ const pool = require('../modules/pool.js');
 
 
 router.get('/', (req, res) => {
+    
+    
+    const query =  `
+    SELECT
+    "class"."id" AS "class_id",
+    "species"."id" AS "species_id",
+    "class_name",
+    "species_name"
+        FROM "class"
+            FULL JOIN "species"
+                ON "class"."id" = "species"."class_id";`;
+    
     // YOUR CODE HERE
-    const query = `
-    SELECT * FROM "class"
-      ORDER BY "class_name" ASC;
-  `;
   pool.query(query)
     .then(result => {
       res.send(result.rows);
     })
     .catch(err => {
-      console.log('ERROR: Get class', err);
+      console.log('ERROR: Get zoo anilmals', err);
       res.sendStatus(500)
     })
 });
 
 
-router.get("/:id", (req, res) => {
-    const query = `
-      SELECT 
-          species.species_name 
-      FROM 
-          species
-      JOIN 
-          species_name ON species.id = species_name.species_id
-      JOIN 
-          class ON class.id = class_name.class_id
-      WHERE 
-          class.id = $1;
-    `;
-    pool
-      .query(query, [req.params.id])
-      .then((result) => {
-        res.send(result.rows);
-      })
-      .catch((err) => {
-        console.error("Error fetching genres:", err);
-        res.sendStatus(500);
-      });
-  });
+
    
-// module.exports = router;
+module.exports = router;
 // The previous developer got stuck and couldn't figure out:
 // 1. How to write a SQL join.
 // 2. How to implement the `redux-saga` library.
