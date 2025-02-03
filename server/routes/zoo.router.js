@@ -2,24 +2,26 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
+pool.query('SELECT NOW()')
+  .then(result => console.log('Database connected:', result.rows[0]))
+  .catch(err => console.error('Error connecting to the database:', err));
 
 router.get('/', (req, res) => {
-    
-    
     const query =  `
     SELECT
-    "class"."id" AS "class_id",
-    "species"."id" AS "species_id",
-    "class_name",
-    "species_name"
-        FROM "class"
-            FULL JOIN "species"
-                ON "class"."id" = "species"."class_id";`;
+    class.id AS class_id,
+    species.id AS species_id,
+    class.class_name,
+    species.species_name
+        FROM class
+             JOIN species
+                ON class.id = species.class_id
+                ORDER BY class.class_name, species.species_name;`
     
     // YOUR CODE HERE
   pool.query(query)
     .then(result => {
-      res.send(result.rows);
+      res.json(result.rows);
     })
     .catch(err => {
       console.log('ERROR: Get zoo anilmals', err);

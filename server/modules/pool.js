@@ -1,7 +1,7 @@
 const pg = require('pg');
 let pool;
 
-let databaseName = 'zoo_animals';
+let databaseName = '6_sagas';
 
 // This makes sure our queries are sent to the prime_test
 // database that gets created and populated each time you

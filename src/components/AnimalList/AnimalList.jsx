@@ -26,8 +26,8 @@ function AnimalList() {
       </thead>
       <tbody>
         {/* Render each item from the zooAnimal reducer */}
-        {zooAnimals.map((animal, i) => {
-            return <AnimalListItem key={i} animal={animal} />;
+        {zooAnimals.map((animal) => {
+            return <AnimalListItem key={animal.species_id} animal={animal} />;
         })}
       </tbody>
     </table>
